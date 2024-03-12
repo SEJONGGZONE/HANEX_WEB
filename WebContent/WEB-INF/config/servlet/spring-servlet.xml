@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:p="http://www.springframework.org/schema/p" xmlns:mvc="http://www.springframework.org/schema/mvc"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:websocket="http://www.springframework.org/schema/websocket"
+		xmlns:task="http://www.springframework.org/schema/task"
+		xsi:schemaLocation="http://www.springframework.org/schema/mvc
+				http://www.springframework.org/schema/mvc/spring-mvc.xsd
+				http://www.springframework.org/schema/beans
+				http://www.springframework.org/schema/beans/spring-beans.xsd
+				http://www.springframework.org/schema/context
+				http://www.springframework.org/schema/context/spring-context-3.0.xsd
+				http://www.springframework.org/schema/websocket
+				http://www.springframework.org/schema/websocket/spring-websocket.xsd
+				http://www.springframework.org/schema/task
+				http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<!--  @Configuration 의존성 자동 주입 -->
+	<context:component-scan base-package="com.hanbiz" />	
+	<mvc:annotation-driven />
+	<!--  <context:annotation-config /> --> <!--  component-scan이 있기 때문에 추가설정 필요없음(주석 해제 시 의존성 주입이 안됨) -->
+	 
+    <bean
+        id="viewResolver"
+        class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:order="2"
+        p:viewClass="org.springframework.web.servlet.view.JstlView"
+        p:prefix="/WEB-INF/views/" p:suffix=".jsp">
+    </bean>  	
+ 
+    	    
+    <bean id="jsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView" />   
+</beans>
