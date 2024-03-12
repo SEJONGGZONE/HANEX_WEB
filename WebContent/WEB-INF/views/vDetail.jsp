@@ -784,6 +784,12 @@
             	var itemEl = e.item;  // dragged HTMLElement
             	//console.log(itemEl.textContent);
             	showMessage("순서변경 : " + itemEl.getAttribute("value") + " [" + (e.oldIndex+1) + " > " + (e.newIndex+1) + "]");
+            	
+            	$('#list .title').each(function(){
+            		//var day= $(this).find('td').eq(8).html();
+            		//$(this).find('td').eq(8).html(day);
+            		console.log($(this).text().trim().replaceAll('반품',''));
+            	});
             } 
 	    });
 	    
